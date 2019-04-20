@@ -1,0 +1,277 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<!-- Mirrored from event-theme.com/themes/html/smarttech/LoginForm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Feb 2019 08:46:09 GMT -->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="M_Adnan" />
+<!-- Document Title -->
+<title>Smart Tech - Ecommerce HTML5 Template</title>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+
+<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+<link rel="stylesheet" type="text/css" href="./rs-plugin/css/settings.css" media="screen" />
+
+<!-- StyleSheets -->
+<link rel="stylesheet" href="../css/ionicons.min.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/responsive.css">
+
+<!-- Fonts Online -->
+<link href="https://fonts.googleapis.com/css?family=Lato:100i,300,400,700,900" rel="stylesheet">
+
+<!-- JavaScripts -->
+<script src="../js/vendors/modernizr.js"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<!-- Page Wrapper -->
+
+    <div class="top-bar">
+      <div class="container">
+        <p>Welcome to Uet Challenger!</p>
+        <div class="right-sec">
+          <ul>
+            {{#if user}}
+                  <span class="text text-primary">Chào: {{user.name}}</span>
+                  <li><a href="/user/logout"><span class="text text-danger">Đăng Xuất</span></a></li>
+            {{else}}
+                  <li><a href="/user/login">Login</a></li>
+                  <li><a href="/user/signup">Register</a></li>
+            {{/if}}
+          </ul>
+        
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo"> <a href="index-2.html"><img src="../images/logo.png" alt="" ></a> </div>
+      
+      <!-- Cart Part -->
+    </div>
+    
+    <!-- Nav -->
+    <nav class="navbar ownmenu">
+      <div class="container"> 
+        
+        <!-- Categories -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn" aria-expanded="false"> <span><i class="fa fa-navicon"></i></span> </button>
+        </div>
+        
+        <!-- NAV -->
+        <div class="collapse navbar-collapse" id="nav-open-btn">
+          <ul class="nav">
+            <li class="megamenu active"> <a href="index-2.html" class="" data-toggle="dropdown">Home </a>
+            </li>
+            <li class=""> <a href="index-2.html" class="" data-toggle="dropdown">Pages </a>
+            </li>
+            <!-- Mega Menu Nav -->
+            <li class="dropdown megamenu"> <a href="index-2.html" class="" data-toggle="dropdown">Mega menu </a>
+            </li>
+            <li class="dropdown"> <a href="blog.html" class="" data-toggle="dropdown">Blog</a>
+            </li>
+            <li> <a href="shop.html">Buy theme! </a></li>
+          </ul>
+        </div>
+        
+        <!-- NAV RIGHT -->
+        <div class="nav-right"> </div>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Content -->
+  <div id="content"> 
+    
+    <!-- Linking -->
+    <div class="linking">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li class="active">Authentication</li>
+        </ol>
+      </div>
+    </div>
+    
+    <!-- Blog -->
+    <section class="login-sec padding-top-30 padding-bottom-100">
+      <div class="container">
+         {{#if user}}
+            <div class="well bg-primary">
+                <h5 class="text text-danger">{{err}}</h5>
+            </div>
+        {{else}}
+          {{#if err}}
+              <div class="well bg-primary">
+                <h5 class="text text-danger">{{err}}</h5>
+              </div>
+          {{/if}}
+        <div class="row">       
+          <!-- Don’t have an Account? Register now -->
+          <div class="col-md-6">
+            <h5>Chưa Có Tài Khoản, Hãy Đăng Ký Ngay</h5>
+            
+            <!-- FORM -->
+            <form method="POST" action="/user/signup">
+              <ul class="row">
+                <li class="col-sm-12">
+                  <label>Họ Và Tên
+                    <input type="text" class="form-control" name="name" placeholder="">
+                  </label>
+                </li>
+                <li class="col-sm-12">
+                  <label>Tên Đăng Nhập
+                    <input type="text" class="form-control" name="username" placeholder="">
+                  </label>
+                </li>
+                <li class="col-sm-12">
+                  <label>Email
+                    <input type="text" class="form-control" name="email" placeholder="">
+                  </label>
+                </li>
+                <li class="col-sm-12">
+                  <label>Mật Khẩu
+                    <input type="password" class="form-control" name="password" placeholder="">
+                  </label>
+                </li>
+                <li class="col-sm-12">
+                  <label>Xác Nhận Mật Khẩu
+                    <input type="password" class="form-control" name="passwordconf" placeholder="">
+                  </label>
+                </li>
+                <li class="col-sm-12 text-left">
+                  <button type="submit" class="btn-round">Register</button>
+                </li>
+              </ul>
+            </form>
+          </div>
+        </div>
+        {{/if}}
+      </div>
+    </section>
+    
+    <!-- Clients img -->
+    <section class="light-gry-bg clients-img">
+      <div class="container">
+        <ul>
+          <li><img src="./images/c-img-1.png" alt="" ></li>
+          <li><img src="./images/c-img-2.png" alt="" ></li>
+          <li><img src="./images/c-img-3.png" alt="" ></li>
+          <li><img src="./images/c-img-4.png" alt="" ></li>
+          <li><img src="./images/c-img-5.png" alt="" ></li>
+        </ul>
+      </div>
+    </section>
+    
+
+  </div>
+  <!-- End Content --> 
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container"> 
+      
+      <!-- Footer Upside Links -->
+        <!-- Categories -->
+        <div class="col-md-2">
+          <h4>Information</h4>
+          <ul class="links-footer">
+            <li><a href="#.">Our Blog</a></li>
+            <li><a href="#."> About Our Shop</a></li>
+            <li><a href="#."> Secure Shopping</a></li>
+            <li><a href="#."> Delivery infomation</a></li>
+            <li><a href="#."> Store Locations</a></li>
+            <li><a href="#."> FAQs</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Rights -->
+  <div class="rights">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <p>Copyright © 2017 <a href="#." class="ri-li"> UET Challenger </a></p>
+        </div>
+        <div class="col-sm-6 text-right"> <img src="./images/card-icon.png" alt=""> </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- End Footer --> 
+  
+  <!-- GO TO TOP  --> 
+  <a href="#" class="cd-top"><i class="fa fa-angle-up"></i></a> 
+  <!-- GO TO TOP End --> 
+</div>
+<!-- End Page Wrapper --> 
+
+<!-- JavaScripts --> 
+<script src="../js/vendors/jquery/jquery.min.js"></script> 
+<script src="../js/vendors/wow.min.js"></script> 
+<script src="../js/vendors/bootstrap.min.js"></script> 
+<script src="../js/vendors/own-menu.js"></script> 
+<script src="../js/vendors/jquery.sticky.js"></script> 
+<script src="../js/vendors/owl.carousel.min.js"></script> 
+
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
+<script type="text/javascript" src="../rs-plugin/js/jquery.tp.t.min.js"></script> 
+<script type="text/javascript" src="../rs-plugin/js/jquery.tp.min.js"></script> 
+<script src="../js/main.js"></script> 
+<script src="../js/vendors/jquery.nouislider.min.js"></script> 
+<script>
+jQuery(document).ready(function($) {
+  
+  //  Price Filter ( noUiSlider Plugin)
+    $("#price-range").noUiSlider({
+    range: {
+      'min': [ 0 ],
+      'max': [ 1000 ]
+    },
+    start: [40, 940],
+        connect:true,
+        serialization:{
+            lower: [
+        $.Link({
+          target: $("#price-min")
+        })
+      ],
+      upper: [
+        $.Link({
+          target: $("#price-max")
+        })
+      ],
+      format: {
+      // Set formatting
+        decimals: 2,
+        prefix: '$'
+      }
+        }
+  })
+})
+
+</script>
+</body>
+
+<!-- Mirrored from event-theme.com/themes/html/smarttech/LoginForm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Feb 2019 08:46:09 GMT -->
+</html>
