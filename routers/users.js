@@ -1,6 +1,6 @@
 const express = require('express');
 const User = require('../models/user');
-const auth = require('../midleware/auth');
+const midleware = require('../midleware/auth');
 const router = express.Router();
 const validator = require('express-validator');
 
@@ -12,9 +12,12 @@ router.use(bodyparser.urlencoded({extended:true}));
 
 router.use(validator());
 
-router.get('/user/login', auth, async (req,res)=>{
-    if(req.user){
+router.get('/user/login', midleware.auth, async (req,res)=>{
+    if(req.user.admin==0){
         res.render('login',{err:'Bạn đã đăng nhập với tài khoản '+ req.user.username,user:req.user});
+    }
+    else if(req.user.admin==1){
+        res.redirect('/admin');
     }
 })
 
@@ -32,7 +35,8 @@ router.post('/user/login',async (req,res,next)=>{
         const user = await User.checkUser(username,password,next);
         const token = await user.generateToken();
         res.cookie('token',token,{maxAge:100000,httpOnly:true});
-        res.status(200).redirect('/');
+        if(user.type==0) res.status(200).redirect('/');
+        else res.status(200).redirect('/admin')
     }
     catch(err){
         res.render('login',{err:err.message});
@@ -40,21 +44,22 @@ router.post('/user/login',async (req,res,next)=>{
 })
 
 
-router.get('/user/signup',auth, async (req,res)=>{
-    if(req.user){
-        res.render('signup',{err:'Bạn đã đăng nhập với tài khoản '+ req.user.username,user:req.user});
+router.get('/user/signup',midleware.auth, async (req,res)=>{
+    if(req.user.admin==0){
+        res.render('login',{err:'Bạn đã đăng nhập với tài khoản '+ req.user.username,user:req.user});
+    }
+    else if(req.user.admin==1){
+        res.redirect('/admin');
     }
 })
 router.post('/user/signup', async (req,res,next)=>{
 
     const data = {};
-
     data.name = req.body.name;
     data.email = req.body.email;
     data.password = req.body.password;
     data.passwordconf = req.body.passwordconf;
     data.username = req.body.username;
-    data.admin = 1;
 
     req.checkBody('username','Username là bắt buộc').notEmpty();
     req.checkBody('name','Tên Người Dùng Là Bắt Buộc').notEmpty();
@@ -83,7 +88,7 @@ router.post('/user/signup', async (req,res,next)=>{
     }
 })
 
-router.get('/user/logout',auth,async (req,res)=>{
+router.get('/user/logout',midleware.auth,async (req,res)=>{
     try{
         req.user.tokens = req.user.tokens.filter((token)=>{
             return token.token !==  req.cookies.token;

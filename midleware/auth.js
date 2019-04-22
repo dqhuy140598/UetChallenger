@@ -24,4 +24,31 @@ const auth = async (req,res,next)=>{
     }
 }
 
-module.exports = auth;
+const checkAdmin = async (req,res,next)=>{
+    console.log(req.url);
+    try{
+        const token = req.cookies.token;
+        if(token){
+            const decoded = await jwt.verify(token,'thisismynewcourse');
+            const user = await User.findOne({_id:decoded._id,'tokens.token':token});
+            if(user.admin==1){
+                req.user = user
+            }
+            else{
+                throw new Error('Bạn Không Đủ Thẩm Quyền')
+            }
+            next();
+        }
+        else{
+            throw new Error('Bạn Không Phải Đăng Nhập Trước')
+        }
+    }
+    catch(err){
+        res.status(503).render('404',{err:err.message})
+    }
+}
+
+module.exports = {
+    auth:auth,
+    checkAdmin:checkAdmin
+}

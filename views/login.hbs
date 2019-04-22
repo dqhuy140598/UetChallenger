@@ -41,62 +41,7 @@
 <body>
 
 <!-- Page Wrapper -->
-
-    <div class="top-bar">
-    <div class="container">
-      <p>Welcome to Uet Challenger</p>
-      <div class="right-sec">
-        <ul>
-          {{#if user}}
-                <span class="text text-primary">Chào: {{user.name}}</span>
-                <li><a href="/user/logout"><span class="text text-danger">Đăng Xuất</span></a></li>
-          {{else}}
-                <li><a href="/user/login">Login</a></li>
-                <li><a href="/user/signup">Register</a></li>
-          {{/if}}
-        </ul>
-      
-      </div>
-    </div>
-  </div>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="logo"> <a href="index-2.html"><img src="../images/logo.png" alt="" ></a> </div>
-      <!-- Cart Part -->
-    </div>
-    
-    <!-- Nav -->
-    <nav class="navbar ownmenu">
-      <div class="container"> 
-        
-        <!-- Categories -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn" aria-expanded="false"> <span><i class="fa fa-navicon"></i></span> </button>
-        </div>
-        
-        <!-- NAV -->
-        <div class="collapse navbar-collapse" id="nav-open-btn">
-          <ul class="nav">
-            <li class="megamenu active"> <a href="index-2.html" class="" data-toggle="dropdown">Home </a>
-            </li>
-            <li class=""> <a href="index-2.html" class="" data-toggle="dropdown">Pages </a>
-            </li>
-            <!-- Mega Menu Nav -->
-            <li class="dropdown megamenu"> <a href="index-2.html" class="" data-toggle="dropdown">Mega menu </a>
-            </li>
-            <li class="dropdown"> <a href="blog.html" class="" data-toggle="dropdown">Blog</a>
-            </li>
-            <li> <a href="shop.html">Buy theme! </a></li>
-          </ul>
-        </div>
-        
-        <!-- NAV RIGHT -->
-        <div class="nav-right"> 
-        </div>
-      </div>
-    </nav>
-  </header>
+  {{>header user = user}}
   
   <!-- Content -->
   <div id="content"> 
@@ -171,37 +116,7 @@
   <!-- End Content --> 
   
   <!-- Footer -->
-  <footer>
-    <div class="container"> 
-      
-      <!-- Footer Upside Links -->
-        <!-- Categories -->
-        <div class="col-md-2">
-          <h4>Information</h4>
-          <ul class="links-footer">
-            <li><a href="#.">Our Blog</a></li>
-            <li><a href="#."> About Our Shop</a></li>
-            <li><a href="#."> Secure Shopping</a></li>
-            <li><a href="#."> Delivery infomation</a></li>
-            <li><a href="#."> Store Locations</a></li>
-            <li><a href="#."> FAQs</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-  
-  <!-- Rights -->
-  <div class="rights">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-          <p>Copyright © 2017 <a href="#." class="ri-li"> UET Challenger </a></p>
-        </div>
-        <div class="col-sm-6 text-right"> <img src="./images/card-icon.png" alt=""> </div>
-      </div>
-    </div>
-  </div>
+  {{> footer}}
   
   <!-- End Footer --> 
   
