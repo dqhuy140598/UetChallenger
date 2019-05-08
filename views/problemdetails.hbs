@@ -1,0 +1,270 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<!-- Mirrored from event-theme.com/themes/html/smarttech/LoginForm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Feb 2019 08:46:09 GMT -->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="M_Adnan" />
+<!-- Document Title -->
+<title>Smart Tech - Ecommerce HTML5 Template</title>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="../frontend/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../frontend/images/favicon.ico" type="image/x-icon">
+
+<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+<link rel="stylesheet" type="text/css" href="../rs-plugin/css/settings.css" media="screen" />
+
+<!-- StyleSheets -->
+<link rel="stylesheet" href="../frontend/css/ionicons.min.css">
+<link rel="stylesheet" href="../frontend/css/bootstrap.min.css">
+<link rel="stylesheet" href="../frontend/css/font-awesome.min.css">
+<link rel="stylesheet" href="../frontend/css/main.css">
+<link rel="stylesheet" href="../frontend/css/style.css">
+<link rel="stylesheet" href="../frontend/css/responsive.css">
+
+<!-- Fonts Online -->
+<link href="https://fonts.googleapis.com/css?family=Lato:100i,300,400,700,900" rel="stylesheet">
+
+<style type="text/css" media="screen">
+    .ace_editor {
+        position: relative !important;
+        border: 1px solid lightgray;
+        margin: auto;
+        height: 500px;
+        width: 100%;
+        font-size: 18px;
+    }
+    .ace_editor.fullScreen {
+        height: auto;
+        width: auto;
+        border: 0;
+        margin: 0;
+        position: fixed !important;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+    }
+
+    .fullScreen {
+        overflow: hidden
+    }
+
+    .scrollmargin {
+        height: 500px;
+        text-align: center;
+    }
+
+    .large-button {
+        color: lightblue;
+        cursor: pointer;
+        font: 30px arial;
+        padding: 20px;
+        text-align: center;
+        border: medium solid transparent;
+        display: inline-block;
+    }
+    .large-button:hover {
+        border: medium solid lightgray;
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 0 0 12px 0 lightblue;
+    }
+    body {
+        transform: translateZ(0);
+    }
+  </style>
+
+<!-- JavaScripts -->
+<script src="../frontend/js/vendors/modernizr.js"></script>
+
+
+
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<!-- Page Wrapper -->
+  {{>header user = user}}
+  
+  <div id="content">
+            <section class="padding-top-40 padding-bottom-60">
+               <div class="container">
+                  <div class="row">
+                     <!-- Products -->
+                     <div class="col-md-12">
+                        <div class="product-detail">
+                           <div class="product">
+                              <div class="row">
+                                 <div class="col-xs-7">
+                                    <span class="tags">{{problem.category.name}}</span>
+                                    <h5>{{problem.name}}</h5>
+                                 
+                                    <!-- List Details -->
+                                    <ul class="bullet-round-list">
+                                       <li>{{problem.description}}</li>
+                                       <li>Đầu Vào: {{problem.input}}</li>
+                                       <li>Đầu Ra: {{problem.output}}</li>
+                                    </ul>
+                                    <div class="row">
+                                      <div class="col-md-4">
+                                      <table class="table table-bordered">
+                                          <thead>
+                                              <th>Đầu Vào</th>
+                                              <th>Đầu Ra</th>
+                                          </thead>
+                                          <tbody>
+                                              <tr>
+                                                  <td>{{{problem.inexample}}}</td>
+                                                  <td>{{{problem.outexample}}}</td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                      </div>
+                                    </div>  
+                                 </div>
+                                 <div class="col-xs-5">
+                                   {{#if message.success}}
+                                      <div class="alert alert-success" role="alert">
+                                        {{message.success}}
+                                      </div>
+                                    {{/if}}
+                                     {{#if message.apath}}
+                                      <div class="alert alert-warning" role="alert">
+                                        {{message.apath}}
+                                      </div>
+                                    {{/if}}
+                                     {{#if message.fail}}
+                                      <div class="alert alert-dark" role="alert">
+                                        {{message.fail}}
+                                      </div>
+                                    {{/if}}
+                                     {{#if message.error}}
+                                      <div class="alert alert-danger" role="alert">
+                                        {{message.error}}
+                                      </div>
+                                    {{/if}}
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                          <div class="row" style="position:relative">
+                            <form action="/problems/{{problem._id}}" method="POST" id="myform">
+                                <div class="form-group col-md-3">
+                                        <label for="sel1">Chọn Ngôn Ngữ</label>
+                                        <select class="form-control" id="sel1" name="language">
+                                          <option value="cpp">C++14</option>
+                                          <option value="java">Java</option>
+                                        </select>
+                                </div>
+                                <input type="hidden" name="sourcecode" style="display: none;" id="hidden">
+                                <div id="editor">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-success" name="submit" value="Nộp Bài" id="submit">
+                                </div>
+                            </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+    </div>
+  {{>footer}}
+<!-- End Page Wrapper --> 
+
+<!-- JavaScripts --> 
+<script src="../frontend/js/vendors/jquery/jquery.min.js"></script> 
+<script src="../frontend/js/vendors/wow.min.js"></script> 
+<script src="../frontend/js/vendors/bootstrap.min.js"></script> 
+<script src="../frontend/js/vendors/own-menu.js"></script> 
+<script src="../frontend/js/vendors/jquery.sticky.js"></script> 
+<script src="../frontend/js/vendors/owl.carousel.min.js"></script> 
+<script src="../frontend/ace-builds/src/ace.js"></script>
+              <!-- load ace themelist extension -->
+<script src="../frontend/ace-builds/src/ext-themelist.js"></script>
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
+<script type="text/javascript" src="../frontend/rs-plugin/js/jquery.tp.t.min.js"></script> 
+<script type="text/javascript" src="../frontend/rs-plugin/js/jquery.tp.min.js"></script> 
+<script src="../frontend/js/main.js"></script> 
+<script src="../frontend/js/vendors/jquery.nouislider.min.js"></script> 
+<script>
+jQuery(document).ready(function($) {
+  
+  //  Price Filter ( noUiSlider Plugin)
+    $("#price-range").noUiSlider({
+    range: {
+      'min': [ 0 ],
+      'max': [ 1000 ]
+    },
+    start: [40, 940],
+        connect:true,
+        serialization:{
+            lower: [
+        $.Link({
+          target: $("#price-min")
+        })
+      ],
+      upper: [
+        $.Link({
+          target: $("#price-max")
+        })
+      ],
+      format: {
+      // Set formatting
+        decimals: 2,
+        prefix: '$'
+      }
+        }
+  })
+})
+</script>
+
+<script>
+
+var $ = document.getElementById.bind(document);
+var dom = require("ace/lib/dom");
+
+//add command to all new editor instances
+require("ace/commands/default_commands").commands.push({
+    name: "Toggle Fullscreen",
+    bindKey: "F11",
+    exec: function(editor) {
+        var fullScreen = dom.toggleCssClass(document.body, "fullScreen")
+        dom.setCssClass(editor.container, "fullScreen", fullScreen)
+        editor.setAutoScrollEditorIntoView(!fullScreen)
+        editor.resize()
+    }
+})
+
+// create first editor
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/monokai");
+editor.session.setMode("ace/mode/c_cpp");
+editor.renderer.setScrollMargin(10, 10);
+editor.setOptions({
+    // "scrollPastEnd": 0.8,
+    autoScrollEditorIntoView: true
+});
+document.getElementById('submit').onclick = function(){
+    var myCode = editor.getSession().getValue();
+    var inputHidden = document.getElementById('hidden');
+    inputHidden.value = myCode;
+}
+var themes = require("ace/ext/themelist").themes.map(function(t){return t.theme});
+window.add = add;
+window.scroll = scroll;
+</script>
+</body>
+
+<!-- Mirrored from event-theme.com/themes/html/smarttech/LoginForm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Feb 2019 08:46:09 GMT -->
+</html>

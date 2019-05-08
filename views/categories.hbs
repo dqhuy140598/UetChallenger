@@ -1,0 +1,168 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<!-- Mirrored from event-theme.com/themes/html/smarttech/LoginForm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Feb 2019 08:46:09 GMT -->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="M_Adnan" />
+<!-- Document Title -->
+<title>Smart Tech - Ecommerce HTML5 Template</title>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="../frontend/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../frontend/images/favicon.ico" type="image/x-icon">
+
+<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+<link rel="stylesheet" type="text/css" href="../rs-plugin/css/settings.css" media="screen" />
+
+<!-- StyleSheets -->
+<link rel="stylesheet" href="../frontend/css/ionicons.min.css">
+<link rel="stylesheet" href="../frontend/css/bootstrap.min.css">
+<link rel="stylesheet" href="../frontend/css/font-awesome.min.css">
+<link rel="stylesheet" href="../frontend/css/main.css">
+<link rel="stylesheet" href="../frontend/css/style.css">
+<link rel="stylesheet" href="../frontend/css/responsive.css">
+
+
+<style>
+  .item-col-3 .product {
+    float: left;
+    width: 27%;
+    margin-bottom: 30px;
+    padding: 0 15px;
+    position: relative;
+    min-height: 150px;
+}
+</style>
+<!-- Fonts Online -->
+<link href="https://fonts.googleapis.com/css?family=Lato:100i,300,400,700,900" rel="stylesheet">
+
+
+
+<!-- JavaScripts -->
+<script src="../frontend/js/vendors/modernizr.js"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<!-- Page Wrapper -->
+  {{>header user = user}}
+  
+  <!-- Content -->
+  <div id="content"> 
+    <!-- Tab Section -->
+    <section class="padding-top-60 padding-bottom-0">
+      <div class="container">
+        <div class="row"> 
+          <!--  Left Side Bar -->
+          <div class="col-md-3">
+
+            <div class="filter-links"> 
+              <!--  Categories -->
+              <h5>Mức Độ</h5>
+              <ul>
+                  <li><a href="/tag/1">Dễ</a></li>
+                  <li><a href="/tag/2">Trung Bình</a></li>
+                  <li><a href="/tag/3">Khó</a></li>
+                  <li><a href="/tag/4">Rất Khó</a></li>
+              </ul> 
+            </div>
+            
+          </div>
+          
+            <div class="col-md-9"> 
+            
+            <!-- Short List -->
+            <div class="short-lst">
+              <h2>Ôn Luyện Theo Chủ Đề</h2>
+            </div>
+            
+            <!-- Items -->
+            <div class="item-col-4"> 
+              <!-- Product -->
+              {{#each listcategory}}
+              <div class="product" style=""">
+                <article> <img class="" src="{{this.image}}" alt="" height="120px" />
+                  <!-- Content --> 
+                  <a href="/categories/{{this._id}}" class="tittle">{{this.name}}</a> 
+                  <!-- Reviews -->
+                  </article>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <!-- Shipping Info -->
+  </div>
+  <!-- End Content --> 
+  
+  <!-- Footer -->
+  {{> footer}}
+  
+  <!-- End Footer --> 
+  
+  <!-- GO TO TOP  --> 
+  <a href="#" class="cd-top"><i class="fa fa-angle-up"></i></a> 
+  <!-- GO TO TOP End --> 
+</div>
+<!-- End Page Wrapper --> 
+
+<!-- JavaScripts --> 
+<script src="../frontend/js/vendors/jquery/jquery.min.js"></script> 
+<script src="../frontend/js/vendors/wow.min.js"></script> 
+<script src="../frontend/js/vendors/bootstrap.min.js"></script> 
+<script src="../frontend/js/vendors/own-menu.js"></script> 
+<script src="../frontend/js/vendors/jquery.sticky.js"></script> 
+<script src="../frontend/js/vendors/owl.carousel.min.js"></script> 
+
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
+<script type="text/javascript" src="../frontend/rs-plugin/js/jquery.tp.t.min.js"></script> 
+<script type="text/javascript" src="../frontend/rs-plugin/js/jquery.tp.min.js"></script> 
+<script src="../frontend/js/main.js"></script> 
+<script src="../frontend/js/vendors/jquery.nouislider.min.js"></script> 
+<script>
+jQuery(document).ready(function($) {
+  
+  //  Price Filter ( noUiSlider Plugin)
+    $("#price-range").noUiSlider({
+    range: {
+      'min': [ 0 ],
+      'max': [ 1000 ]
+    },
+    start: [40, 940],
+        connect:true,
+        serialization:{
+            lower: [
+        $.Link({
+          target: $("#price-min")
+        })
+      ],
+      upper: [
+        $.Link({
+          target: $("#price-max")
+        })
+      ],
+      format: {
+      // Set formatting
+        decimals: 2,
+        prefix: '$'
+      }
+        }
+  })
+})
+
+</script>
+</body>
+
+<!-- Mirrored from event-theme.com/themes/html/smarttech/LoginForm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Feb 2019 08:46:09 GMT -->
+</html>

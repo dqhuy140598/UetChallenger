@@ -1,0 +1,184 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<!-- Mirrored from event-theme.com/themes/html/smarttech/LoginForm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Feb 2019 08:46:09 GMT -->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="M_Adnan" />
+<!-- Document Title -->
+<title>Smart Tech - Ecommerce HTML5 Template</title>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="../frontend/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../frontend/images/favicon.ico" type="image/x-icon">
+
+<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+<link rel="stylesheet" type="text/css" href="../rs-plugin/css/settings.css" media="screen" />
+
+<!-- StyleSheets -->
+<link rel="stylesheet" href="../frontend/css/ionicons.min.css">
+<link rel="stylesheet" href="../frontend/css/bootstrap.min.css">
+<link rel="stylesheet" href="../frontend/css/font-awesome.min.css">
+<link rel="stylesheet" href="../frontend/css/main.css">
+<link rel="stylesheet" href="../frontend/css/style.css">
+<link rel="stylesheet" href="../frontend/css/responsive.css">
+
+<!-- Fonts Online -->
+<link href="https://fonts.googleapis.com/css?family=Lato:100i,300,400,700,900" rel="stylesheet">
+
+
+
+<!-- JavaScripts -->
+<script src="../frontend/js/vendors/modernizr.js"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<!-- Page Wrapper -->
+  {{>header user = user}}
+  
+  <!-- Content -->
+  <div id="content"> 
+    <!-- Tab Section -->
+    <section class="padding-top-60 padding-bottom-0">
+      <div class="container">
+        <div class="row"> 
+          <!--  Left Side Bar -->
+          <div class="col-md-3">
+
+            <div class="filter-links"> 
+              <!--  Categories -->
+              <h5>Categories</h5>
+              <ul>
+                {{#each listcategory}}
+                  <li><a href="category/{{this._id}}">{{this.name}}</a></li>
+                {{/each}}
+              </ul>
+            </div>
+            
+          </div>
+            <!-- Items Slider -->
+            <div class="item-col-3"> 
+              
+              {{#each listproblem}}
+              <!-- Product -->
+              <div class="product">
+                <article>
+                  <!-- Content --> 
+                  <span class="tag">{{this.category.name}}</span> <a href="#." class="tittle">{{this.name}}</a> 
+                  <!-- Reviews -->
+                  <a href="problem/{{this._id}}" class="cart-btn"><i class="fas fa-allergies"></i></a> </article>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Blog -->
+    <section class="padding-top-60 padding-bottom-60">
+      <div class="container"> 
+        
+        <!-- heading -->
+        <div class="heading">
+          <h2>From our Blog</h2>
+          <hr>
+        </div>
+        <div id="blog-slide" class="with-nav owl-carousel owl-theme owl-loaded"> 
+          
+          <!-- Blog Post -->
+          
+          
+          <!-- Blog Post -->
+          
+          
+          <!-- Blog Post -->
+          
+        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1170px;"><div class="owl-item active" style="width: 360px; margin-right: 30px;"><div class="blog-post">
+            <article> <img class="img-responsive" src="images/blog-img-1.jpg" alt=""> <span><i class="fa fa-bookmark-o"></i> 25 Dec, 2017</span> <span><i class="fa fa-comment-o"></i> 86 Comments</span> <a href="#." class="tittle">It’s why there’s nothing else like Mac. </a>
+              <p>Etiam porttitor ante non tellus pulvinar, non vehicula lorem fermentum. Nulla vitae efficitur mi [...] </p>
+              <a href="#.">Readmore</a> </article>
+          </div></div><div class="owl-item active" style="width: 360px; margin-right: 30px;"><div class="blog-post">
+            <article> <img class="img-responsive" src="images/blog-img-2.jpg" alt=""> <span><i class="fa fa-bookmark-o"></i> 25 Dec, 2017</span> <span><i class="fa fa-comment-o"></i> 86 Comments</span> <a href="#." class="tittle">Get the power to take your business to the
+              next level. </a>
+              <p>Etiam porttitor ante non tellus pulvinar, non vehicula lorem fermentum. Nulla vitae efficitur mi [...] </p>
+              <a href="#.">Readmore</a> </article>
+          </div></div><div class="owl-item active" style="width: 360px; margin-right: 30px;"><div class="blog-post">
+            <article> <img class="img-responsive" src="images/blog-img-3.jpg" alt=""> <span><i class="fa fa-bookmark-o"></i> 25 Dec, 2017</span> <span><i class="fa fa-comment-o"></i> 86 Comments</span> <a href="#." class="tittle">It’s why there’s nothing else like Mac. </a>
+              <p>Etiam porttitor ante non tellus pulvinar, non vehicula lorem fermentum. Nulla vitae efficitur mi [...] </p>
+              <a href="#.">Readmore</a> </article>
+          </div></div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style=""><i class="fa fa-angle-left"></i></div><div class="owl-next" style=""><i class="fa fa-angle-right"></i></div></div><div class="owl-dots" style=""><div class="owl-dot active"><span></span></div></div></div></div>
+      </div>
+    </section>
+    
+    <!-- Shipping Info -->
+  </div>
+  <!-- End Content --> 
+  
+  <!-- Footer -->
+  {{> footer}}
+  
+  <!-- End Footer --> 
+  
+  <!-- GO TO TOP  --> 
+  <a href="#" class="cd-top"><i class="fa fa-angle-up"></i></a> 
+  <!-- GO TO TOP End --> 
+</div>
+<!-- End Page Wrapper --> 
+
+<!-- JavaScripts --> 
+<script src="../frontend/js/vendors/jquery/jquery.min.js"></script> 
+<script src="../frontend/js/vendors/wow.min.js"></script> 
+<script src="../frontend/js/vendors/bootstrap.min.js"></script> 
+<script src="../frontend/js/vendors/own-menu.js"></script> 
+<script src="../frontend/js/vendors/jquery.sticky.js"></script> 
+<script src="../frontend/js/vendors/owl.carousel.min.js"></script> 
+
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
+<script type="text/javascript" src="../frontend/rs-plugin/js/jquery.tp.t.min.js"></script> 
+<script type="text/javascript" src="../frontend/rs-plugin/js/jquery.tp.min.js"></script> 
+<script src="../frontend/js/main.js"></script> 
+<script src="../frontend/js/vendors/jquery.nouislider.min.js"></script> 
+<script>
+jQuery(document).ready(function($) {
+  
+  //  Price Filter ( noUiSlider Plugin)
+    $("#price-range").noUiSlider({
+    range: {
+      'min': [ 0 ],
+      'max': [ 1000 ]
+    },
+    start: [40, 940],
+        connect:true,
+        serialization:{
+            lower: [
+        $.Link({
+          target: $("#price-min")
+        })
+      ],
+      upper: [
+        $.Link({
+          target: $("#price-max")
+        })
+      ],
+      format: {
+      // Set formatting
+        decimals: 2,
+        prefix: '$'
+      }
+        }
+  })
+})
+
+</script>
+</body>
+
+<!-- Mirrored from event-theme.com/themes/html/smarttech/LoginForm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Feb 2019 08:46:09 GMT -->
+</html>

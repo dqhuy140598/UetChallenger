@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sufee Admin - HTML5 Admin Template</title>
+        <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-icon.png">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="/../admin/vendors/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/../admin/vendors/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/../admin/vendors/themify-icons/css/themify-icons.css">
+        <link rel="stylesheet" href="/../admin/vendors/flag-icon-css/css/flag-icon.min.css">
+        <link rel="stylesheet" href="/../admin/vendors/selectFX/css/cs-skin-elastic.css">
+        <link rel="stylesheet" href="/../admin/vendors/jqvmap/dist/jqvmap.min.css">
+        <link rel="stylesheet" href="/../admin/asset/css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+    {{>adminleftpanel}}
+    <div class="right-panel" id="right-panel">
+        {{>adminheader}}
+        <div class="breadcrumbs">
+            <div class="col-sm-5">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Danh Sách Bài Tập Chưa Được Thêm TestCase</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Dashboard</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <!-- <div class="card-body"> -->
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Tên Danh Mục</th>
+                                    <th scope="col">Tên Bài</th>
+                                    <th scope="col">Trạng Thái</th>
+                                    <th scope="col">Điều Khiển</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                     {{#each problemnotest}}
+                                        <tr>
+                                                <th scope="row"></th>
+                                                <td>{{this.category.name}}</td>
+                                                <td>{{this.name}}</td>
+                                                <td>
+                                                    {{#if status}}
+                                                        Hiện
+                                                    {{else}}   
+                                                        Ẩn                                        
+                                                    {{/if}}   
+                                                </td>                              
+                                                <td>
+                                                    <a href="./addtest/{{_id}}"><i class="fa fa-pencil"></i>Thêm Test Case</a>
+                                                </td>
+                                        </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .content -->
+    </div>
+{{>adminfooter}}
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sufee Admin - HTML5 Admin Template</title>
+        <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/../admin/vendors/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/../admin/vendors/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/../admin/vendors/themify-icons/css/themify-icons.css">
+        <link rel="stylesheet" href="/../admin/vendors/flag-icon-css/css/flag-icon.min.css">
+        <link rel="stylesheet" href="/../admin/vendors/selectFX/css/cs-skin-elastic.css">
+        <link rel="stylesheet" href="/../admin/vendors/jqvmap/dist/jqvmap.min.css">
+        <link rel="stylesheet" href="/../admin/asset/css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+        {{> adminleftpanel}}
+        <div id="right-panel" class="right-panel">
+            {{> adminheader}}
+                        <div class="breadcrumbs">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="page-header float-left">
+                            <div class="page-title">
+                                <h1>Thêm Mới Test Case</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="page-header float-right">
+                            <div class="page-title">
+                                <ol class="breadcrumb text-right">
+                                    <li class="active">Dashboard</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content mt-3">
+                    <div class="animated fadeIn">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!-- Credit Card -->
+                                        {{#if err}}
+                                            <div class="alert alert-danger">
+                                                {{err}}
+                                            </div>
+                                        {{/if}}
+                                        <div id="pay-invoice">
+                                            <div class="card-body">
+                                                <form action="/admin/addtest/{{problemtoadd._id}}" method="post" enctype="multipart/form-data">
+                                                    <div class="form-group">
+                                                        <span class="text text-primary text-uppercase">{{problemtoadd.name}}</span>
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Input 1</label>
+                                                        <input id="catname" name="in" type="file" class="form-control"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Output 1</label>
+                                                        <input id="catname" name="out" type="file" class="form-control"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Input 2</label>
+                                                        <input id="catname" name="in" type="file" class="form-control"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Output 2</label>
+                                                        <input id="catname" name="out" type="file" class="form-control"/>
+                                                    </div>
+                                                    <div>
+                                                        <input type="submit" value="Thêm Mới" name="addNew" />
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card -->
+                            </div>
+                        </div> <!-- .content -->
+                    </div>
+            </div>
+        </div>
+        {{>adminfooter}}
+</body>
+</html>

@@ -17,7 +17,8 @@ router.get('/user/login', midleware.auth, async (req,res)=>{
         res.render('login',{err:'Bạn đã đăng nhập với tài khoản '+ req.user.username,user:req.user});
     }
     else if(req.user.admin==1){
-        res.redirect('/admin');
+        console.log(req.user);
+        res.status(200).redirect('/admin')
     }
 })
 
@@ -34,8 +35,8 @@ router.post('/user/login',async (req,res,next)=>{
     try{
         const user = await User.checkUser(username,password,next);
         const token = await user.generateToken();
-        res.cookie('token',token,{maxAge:100000,httpOnly:true});
-        if(user.type==0) res.status(200).redirect('/');
+        res.cookie('token',token,{maxAge:900000,httpOnly:true});
+        if(user.admin==0) res.status(200).redirect('/');
         else res.status(200).redirect('/admin')
     }
     catch(err){
@@ -79,7 +80,7 @@ router.post('/user/signup', async (req,res,next)=>{
         try{
             await User.checkUserCreated(user.username,user.email);
             const token = await user.generateToken();
-            res.cookie('token',token,{maxAge:100000,httpOnly:true});
+            res.cookie('token',token,{maxAge:900000,httpOnly:true});
             res.status(200).redirect('/');
         }
         catch(err){

@@ -1,0 +1,190 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<!-- Mirrored from event-theme.com/themes/html/smarttech/LoginForm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Feb 2019 08:46:09 GMT -->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="M_Adnan" />
+<!-- Document Title -->
+<title>Smart Tech - Ecommerce HTML5 Template</title>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="../frontend/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../frontend/images/favicon.ico" type="image/x-icon">
+
+<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+<link rel="stylesheet" type="text/css" href="../rs-plugin/css/settings.css" media="screen" />
+
+<!-- StyleSheets -->
+<link rel="stylesheet" href="../frontend/css/ionicons.min.css">
+<link rel="stylesheet" href="../frontend/css/bootstrap.min.css">
+<link rel="stylesheet" href="../frontend/css/font-awesome.min.css">
+<link rel="stylesheet" href="../frontend/css/main.css">
+<link rel="stylesheet" href="../frontend/css/style.css">
+<link rel="stylesheet" href="../frontend/css/responsive.css">
+
+<!-- Fonts Online -->
+<link href="https://fonts.googleapis.com/css?family=Lato:100i,300,400,700,900" rel="stylesheet">
+
+
+
+<!-- JavaScripts -->
+<script src="../frontend/js/vendors/modernizr.js"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<!-- Page Wrapper -->
+  {{>header user = user}}
+  
+        <div id="content"> 
+        
+        <!-- Linking -->
+        <div class="linking">
+        <div class="container">
+            <ol class="breadcrumb">
+            <li><a href="/categories">Mức Độ</a></li>
+            <li class="active">{{tag}}</li>
+            </ol>
+        </div>
+        </div>
+        
+        <!-- Blog -->
+        <section class="blog-page padding-top-30 padding-bottom-60">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-9"> 
+                <h5 class="text text-success">Danh Sách Bài</h5>
+                {{#each listproblemsbytag}}
+                   <div class="alert alert-info" role="alert">
+                       <div class="row">
+                            <div class="col-md-7"><a href="/problems/{{this._id}}" class="alert-link">{{this.name}}</a></div>
+                            <div class="col-md-5">
+                                  {{#if this.submition}}  
+                                    <span class="text text-primary">Đạt Điểm: {{this.submition.score}}/10</span>                    
+                                {{else}}
+                                      <span class="text text-danger">Trạng Thái: Chưa Hoàn Thành</span>
+                                {{/if}}
+                              </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            
+            <!-- Side Bar -->
+            <div class="col-md-3">
+                <div class="shop-side-bar"> 
+      
+                <!-- Categories -->
+                <h6>Wall Of Frame</h6>  
+                <div class="checkbox checkbox-primary">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Tên</th>
+                            <th>Điểm</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {{#each wallOfFrame}}
+                          <tr>
+                            <td>{{this.name}}</td>
+                            <td>{{this.totalScore}}</td>
+                          </tr>
+                          {{/each}}
+                        </tbody>
+                      </table>
+                </div>
+                
+                <!-- Recent Posts -->
+                <h6>Recent Posts</h6>
+                <div class="recent-post"> 
+                    
+                    <!-- Recent Posts -->
+                    <div class="media">
+                    <div class="media-left"> <a href="#."><img class="img-responsive" src="images/blog-img-2.jpg" alt=""> </a> </div>
+                    <div class="media-body"> <a href="#.">It’s why there’s
+                        nothing else like Mac. </a> <span>25 Dec, 2017 </span><span> 86 Comments</span> </div>
+                    </div>
+                    
+                    <!-- Recent Posts -->
+                    <div class="media">
+                    <div class="media-left"> <a href="#."><img class="img-responsive" src="images/blog-img-3.jpg" alt=""> </a> </div>
+                    <div class="media-body"> <a href="#.">It’s why there’s
+                        nothing else like Mac. </a> <span>25 Dec, 2017 </span><span> 86 Comments</span> </div>
+                    </div>
+                    
+                    <!-- Recent Posts -->
+                    <div class="media">
+                    <div class="media-left"> <a href="#."><img class="img-responsive" src="images/blog-img-4.jpg" alt=""> </a> </div>
+                    <div class="media-body"> <a href="#.">It’s why there’s
+                        nothing else like Mac. </a> <span>25 Dec, 2017 </span><span> 86 Comments</span> </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+        
+    </div>
+
+    
+  {{>footer}}
+<!-- End Page Wrapper --> 
+
+<!-- JavaScripts --> 
+<script src="../frontend/js/vendors/jquery/jquery.min.js"></script> 
+<script src="../frontend/js/vendors/wow.min.js"></script> 
+<script src="../frontend/js/vendors/bootstrap.min.js"></script> 
+<script src="../frontend/js/vendors/own-menu.js"></script> 
+<script src="../frontend/js/vendors/jquery.sticky.js"></script> 
+<script src="../frontend/js/vendors/owl.carousel.min.js"></script> 
+
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
+<script type="text/javascript" src="../frontend/rs-plugin/js/jquery.tp.t.min.js"></script> 
+<script type="text/javascript" src="../frontend/rs-plugin/js/jquery.tp.min.js"></script> 
+<script src="../frontend/js/main.js"></script> 
+<script src="../frontend/js/vendors/jquery.nouislider.min.js"></script> 
+<script>
+jQuery(document).ready(function($) {
+  
+  //  Price Filter ( noUiSlider Plugin)
+    $("#price-range").noUiSlider({
+    range: {
+      'min': [ 0 ],
+      'max': [ 1000 ]
+    },
+    start: [40, 940],
+        connect:true,
+        serialization:{
+            lower: [
+        $.Link({
+          target: $("#price-min")
+        })
+      ],
+      upper: [
+        $.Link({
+          target: $("#price-max")
+        })
+      ],
+      format: {
+      // Set formatting
+        decimals: 2,
+        prefix: '$'
+      }
+        }
+  })
+})
+
+</script>
+</body>
+
+<!-- Mirrored from event-theme.com/themes/html/smarttech/LoginForm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Feb 2019 08:46:09 GMT -->
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sufee Admin - HTML5 Admin Template</title>
+        <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/../admin/vendors/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/../admin/vendors/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/../admin/vendors/themify-icons/css/themify-icons.css">
+        <link rel="stylesheet" href="/../admin/vendors/flag-icon-css/css/flag-icon.min.css">
+        <link rel="stylesheet" href="/../admin/vendors/selectFX/css/cs-skin-elastic.css">
+        <link rel="stylesheet" href="/../admin/vendors/jqvmap/dist/jqvmap.min.css">
+        <link rel="stylesheet" href="/../admin/asset/css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+        {{> adminleftpanel}}
+        <div id="right-panel" class="right-panel">
+            {{> adminheader}}
+                        <div class="breadcrumbs">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="page-header float-left">
+                            <div class="page-title">
+                                <h1>Chỉnh Sửa Bài Tập</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="page-header float-right">
+                            <div class="page-title">
+                                <ol class="breadcrumb text-right">
+                                    <li class="active">Dashboard</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content mt-3">
+                    <div class="animated fadeIn">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!-- Credit Card -->
+                                        {{#if err}}
+                                                <div class="alert alert-danger">
+                                                    {{err}}
+                                                </div>
+                                        {{/if}}
+                                        <div id="pay-invoice">
+                                            <div class="card-body">
+                                                <form action="/admin/editproblem/{{editproblem._id}}" method="POST" enctype="multipart/form-data">
+                                                    <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Danh Mục</label>
+                                                        <select class="form-control" id="sel1" name="category">
+                                                            <option value="{{editproblem.category._id}}">{{editproblem.category.name}}</option>
+                                                            {{#each listcategory}}
+                                                                <option value="{{this._id}}">{{this.name}}</option>
+                                                            {{/each}}
+                                                        </select>
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Độ Khó</label>
+                                                        <select class="form-control" id="sel1" name="tag">
+                                                                <option value="1">Dễ</option>
+                                                                <option value="2">Trung Bình</option>
+                                                                <option value="3">Khó</option>
+                                                                <option value="4">Rất Khó</option>
+                                                        </select>
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Tên Bài Tập</label>
+                                                        <input id="catname" name="name" value="{{editproblem.name}}" type="text" class="form-control"/>
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Mô Tả</label>
+                                                        <textarea class="form-control" rows="5" id="comment" name="description">{{editproblem.description}}</textarea>
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Đầu Vào</label>
+                                                        <textarea class="form-control" rows="5" id="comment" name="input">{{editproblem.input}}</textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Đầu Ra</label>
+                                                        <input id="catname" name="output" value="{{editproblem.output}}" type="text" class="form-control"/>
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Đầu Vào Mẫu</label>
+                                                        <textarea class="form-control" rows="5" id="comment" name="inexample">{{editproblem.inexample}}</textarea>
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Đầu Ra Mẫu</label>
+                                                        <textarea class="form-control" rows="5" id="comment" name="outexample">{{editproblem.outexample}}</textarea>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <div class="checkbox">
+                                                            <label for="checkbox1" class="form-check-label ">
+                                                                <input type="checkbox" id="status" name="status" {{#if editproblem.status}} checked {{/if}}   value="1" class="form-check-input">Trạng thái
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <input type="submit" value="Chỉnh Sửa" name="addNew" />
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card -->
+                            </div>
+                        </div> <!-- .content -->
+                    </div>
+            </div>
+        </div>
+        {{>adminfooter}}
+</body>
+</html>
