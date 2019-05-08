@@ -80,6 +80,19 @@
 <!-- JavaScripts -->
 <script src="../frontend/js/vendors/modernizr.js"></script>
 
+<style>
+    h5{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    li{
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 20px;
+    }
+    th{
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+</style>
 
 
 
@@ -106,8 +119,8 @@
                            <div class="product">
                               <div class="row">
                                  <div class="col-xs-7">
-                                    <span class="tags">{{problem.category.name}}</span>
-                                    <h5>{{problem.name}}</h5>
+                                    <span class="text-info" class="tags">{{problem.category.name}}</span>
+                                    <h5 class="lead text-success" style="font-size:36px;">{{problem.name}}</h5>
                                  
                                     <!-- List Details -->
                                     <ul class="bullet-round-list">
@@ -119,8 +132,8 @@
                                       <div class="col-md-4">
                                       <table class="table table-bordered">
                                           <thead>
-                                              <th>Đầu Vào</th>
-                                              <th>Đầu Ra</th>
+                                              <th class="lead">Đầu Vào</th>
+                                              <th class="lead">Đầu Ra</th>
                                           </thead>
                                           <tbody>
                                               <tr>

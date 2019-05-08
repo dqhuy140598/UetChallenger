@@ -33,7 +33,17 @@
     padding: 0 15px;
     position: relative;
     min-height: 150px;
-}
+  }
+  h5{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  a{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+  }
+  h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 </style>
 <!-- Fonts Online -->
 <link href="https://fonts.googleapis.com/css?family=Lato:100i,300,400,700,900" rel="stylesheet">
@@ -65,9 +75,9 @@
 
             <div class="filter-links"> 
               <!--  Categories -->
-              <h5>Mức Độ</h5>
+              <h5 class="lead" style="font-size:28px;">Mức Độ</h5>
               <ul>
-                  <li><a href="/tag/1">Dễ</a></li>
+                  <li><a  href="/tag/1">Dễ</a></li>
                   <li><a href="/tag/2">Trung Bình</a></li>
                   <li><a href="/tag/3">Khó</a></li>
                   <li><a href="/tag/4">Rất Khó</a></li>
@@ -80,17 +90,17 @@
             
             <!-- Short List -->
             <div class="short-lst">
-              <h2>Ôn Luyện Theo Chủ Đề</h2>
+              <h2 class="lead text-info" style="font-size:30px;">Ôn Luyện Theo Chủ Đề</h2>
             </div>
             
             <!-- Items -->
             <div class="item-col-4"> 
               <!-- Product -->
               {{#each listcategory}}
-              <div class="product" style=""">
+              <div class="product" style="">
                 <article> <img class="" src="{{this.image}}" alt="" height="120px" />
                   <!-- Content --> 
-                  <a href="/categories/{{this._id}}" class="tittle">{{this.name}}</a> 
+                  <a href="/categories/{{this._id}}" class="tittle lead" style="font-size:20px;padding-top:10px">{{this.name}}</a> 
                   <!-- Reviews -->
                   </article>
               </div>
