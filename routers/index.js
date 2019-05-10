@@ -49,4 +49,8 @@ router.get('/blogs/:id',(req,res)=>{
     frontBlogController.getBlogById(req,res);
 })
 
+router.get('/about/',(req,res)=>{
+    res.render('about');
+})
+
 module.exports = router;

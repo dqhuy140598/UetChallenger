@@ -7,6 +7,9 @@ const Submition = require('../models/submition');
 const mongoose = require('../config/database');
 const User = require('../models/user');
 
+
+const Post = require('../models/post');
+
 renderCategories = async(req,res)=>{
     let user = null;
     if(req.user){
@@ -27,6 +30,7 @@ renderProblemsByCategoryId = async (req,res)=>{
     if(req.user){
         user = req.user;
     }
+    const lastfiveblog = await Post.find({}).sort({'created':-1}).limit(5);
     const userid = req.user._id;
     const id = req.params.id.toString();
     const categoryById = await Category.findById({_id:id}).populate('problems');
@@ -46,7 +50,7 @@ renderProblemsByCategoryId = async (req,res)=>{
             listproblembycategory[i].submition = null;
         }
     }
-    res.render('problembycategory',{user:user,listproblembycategory,categoryname,wallOfFrame});
+    res.render('problembycategory',{user:user,listproblembycategory,categoryname,wallOfFrame,lastfiveblog});
 }
 
 renderProblemsByTagId = async(req,res)=>{
@@ -55,7 +59,7 @@ renderProblemsByTagId = async(req,res)=>{
         user = req.user;
     }
     const wallOfFrame = await getWallOfFrame();
-    
+    const lastfiveblog = await Post.find({}).sort({'created':-1}).limit(5);
     const userid = req.user._id;
     const tagArr = ['Dễ','Trung Bình','Khó','Rất Khó'];
     const id = req.params.id;
@@ -75,7 +79,7 @@ renderProblemsByTagId = async(req,res)=>{
             listproblemsbytag[i].submition = null;
         }
     }
-    res.render('problembytag',{user:user,listproblemsbytag,tag,wallOfFrame})
+    res.render('problembytag',{user:user,listproblemsbytag,tag,wallOfFrame,lastfiveblog})
     
 }
 

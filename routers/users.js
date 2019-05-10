@@ -35,7 +35,7 @@ router.post('/user/login',async (req,res,next)=>{
     try{
         const user = await User.checkUser(username,password,next);
         const token = await user.generateToken();
-        res.cookie('token',token,{maxAge:900000,httpOnly:true});
+        res.cookie('token',token,{maxAge:3600000,httpOnly:true});
         if(user.admin==0) res.status(200).redirect('/');
         else res.status(200).redirect('/admin')
     }
@@ -80,7 +80,7 @@ router.post('/user/signup', async (req,res,next)=>{
         try{
             await User.checkUserCreated(user.username,user.email);
             const token = await user.generateToken();
-            res.cookie('token',token,{maxAge:900000,httpOnly:true});
+            res.cookie('token',token,{maxAge:3600000,httpOnly:true});
             res.status(200).redirect('/');
         }
         catch(err){
